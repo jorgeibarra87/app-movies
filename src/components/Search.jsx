@@ -2,6 +2,7 @@ import styles from "../pages/Search.module.css"
 import { ImSearch } from 'react-icons/im'
 import { useNavigate } from "react-router"
 import { useQuery } from '../hooks/useQuery';
+import placeholder from "../placeholder.jpg"
 
 export default function Search() {
 
@@ -21,9 +22,7 @@ export default function Search() {
                     const value = e.target.value;
                     navigate("/?search=" + value);
                 }} />
-                <button className={styles.searchButton} type="submit">
-                    <ImSearch size={20} />
-                </button>
+                <ImSearch size={20} color="black" className={styles.searchButton} />
             </div>
         </form>
     )

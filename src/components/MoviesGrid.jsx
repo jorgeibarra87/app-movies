@@ -3,8 +3,8 @@ import { MovieCard } from './MovieCard'
 import { get } from "../utils/httpClient"
 import styles from "../MoviesGrid.module.css"
 import Spinner from '../components/Spinner';
-import { useQuery } from '../hooks/useQuery';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Empty from './Empty';
 
 export function MoviesGrid({ search }) {
     const [movies, setMovies] = useState([]);
@@ -26,6 +26,9 @@ export function MoviesGrid({ search }) {
         });
     }, [search, page]);
 
+    if (!isLoading && movies.length === 0) {
+        return <Empty />
+    }
 
 
     return (
